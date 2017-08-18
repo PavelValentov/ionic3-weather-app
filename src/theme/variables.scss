@@ -1,0 +1,38 @@
+$font-path: "../assets/fonts";
+$app-direction: ltr;
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    rgb(33, 150, 243),
+  secondary:  rgb(255, 152, 0),
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222
+);
+
+// TOP TOOLBAR
+$toolbar-md-background: color($colors, secondary);
+$menu-width: 260px;
+$background-color: #EEEEEE;
+
+@import "ionic.theme.default";
+@import "ionic.ionicons";
+
+@import "roboto";
+@import "noto-sans";

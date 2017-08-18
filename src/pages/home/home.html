@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Погода на сегодня — Today's weather</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+    <h1 *ngIf="location && location.key" class="w-header">{{location.city}}, {{location.state}}</h1>
+    <ion-grid *ngIf="weather">
+        <ion-row>
+            <ion-col width-50 offset-25 style="text-align: center;">
+                <div class="icon"><img src="{{getIconPath()}}" alt=""></div>
+                <p class="temp">{{weather[0].Temperature.Metric.Value}}&deg;</p>
+                <h3>{{weather[0].WeatherText}}</h3>
+                <p>Обновление: {{getWeatherDate()}}</p>
+                <p>Ощущается: {{weather[0].RealFeelTemperature.Metric.Value}}&deg;</p>
+                <p>Относительная влажность: {{weather[0].RelativeHumidity}}%</p>
+                <p>Ветер: {{weather[0].Wind.Direction.Localized}} {{(weather[0].Wind.Speed.Metric.Value * 10 /
+                    36).toFixed(3)}} м/сек</p>
+                <p>Давление: {{(weather[0].Pressure.Metric.Value * 0.75006375541921).toFixed(0)}} мм рт. ст.</p>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let photo of getPhotos();" class="photo-row">
+            <ion-card>
+                <img src="{{photo.PortraitLink}}" alt="">
+            </ion-card>
+        </ion-row>
+        <p></p>
+    </ion-grid>
+</ion-content>

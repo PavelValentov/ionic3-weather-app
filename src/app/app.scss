@@ -1,0 +1,12 @@
+.active-highlight.menu-list-items:hover {
+  color: color($colors, secondary);
+}
+
+.menu-list-items:hover {
+  color: color($colors, primary);
+}
+
+.active-highlight {
+  background-color: color($colors, primary);
+  color: color($colors, light);
+}

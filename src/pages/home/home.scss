@@ -1,0 +1,25 @@
+page-home {
+
+  .home {
+    background-color: color($colors, primary);
+    color: color($colors, light);
+    margin-top: 32px;
+  }
+
+  .toolbar-title {
+    text-align: left;
+  }
+
+  .w-header {
+    text-align: center;
+  }
+
+  .scroll-content {
+    overflow-y: auto;
+  }
+
+  .temp {
+    font-size: 72px;
+    margin: 0;
+  }
+}
