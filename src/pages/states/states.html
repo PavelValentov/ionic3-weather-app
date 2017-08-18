@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Регионы России — Russian states</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <p *ngIf="!states">
+        Не удалось получить список регионов.
+        <br />
+        Проверьте, указан ли верный API key.
+    </p>
+    <ion-grid *ngIf="states">
+        <ion-row class="state-head">
+            <ion-col col-1>
+                №
+            </ion-col>
+            <ion-col col-2>
+                ID
+            </ion-col>
+            <ion-col col-6>
+                Наименование
+            </ion-col>
+            <ion-col col-3>
+                Тип
+            </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let state of states; index as i;"
+            class="state-row">
+            <ion-col col-1>
+                {{i+1}}
+            </ion-col>
+            <ion-col col-2>
+                {{state.ID}}
+            </ion-col>
+            <ion-col col-6>
+                {{state.LocalizedName}}
+            </ion-col>
+            <ion-col col-3>
+                {{state.LocalizedType}}
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

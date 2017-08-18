@@ -1,0 +1,15 @@
+page-states {
+  .title {
+    text-align: left;
+  }
+
+  .state-head {
+    background-color: #AAAAAA;
+  }
+
+  .state-row:hover {
+    background-color: color($colors, primary);
+    cursor: pointer;
+    color: #FFF;
+  }
+}

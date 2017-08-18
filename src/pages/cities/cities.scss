@@ -1,0 +1,61 @@
+page-cities {
+  .title {
+    text-align: left;
+  }
+
+  .item-md {
+    padding: 0;
+  }
+
+  .city-head {
+    background-color: #AAAAAA;
+    margin-top: 16px;
+    font-weight: 600;
+  }
+
+  .city-row:hover {
+    background-color: color($colors, primary);
+    cursor: pointer;
+    color: #FFF;
+  }
+
+  .manage-content {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 1fr 160px;
+    padding: 20px 0px;
+  }
+
+  .city-btn {
+    align-self: end;
+  }
+
+  #toomuch-city-label {
+    background-color: #fbb6b6;
+    padding: 16px 16px;
+    margin: 16px 0;
+    text-align: center;
+  }
+
+  #select-city-label {
+    background-color: springgreen;
+    padding: 16px 16px;
+    margin: 16px 0;
+    text-align: center;
+  }
+
+  #notfound-city-label {
+    background-color: #ff9696;
+    padding: 16px 16px;
+    margin: 16px 0;
+    text-align: center;
+  }
+
+}
+.toast-container {
+  background-color: green;
+}
+
+.toast-message {
+  color: white !important;
+}

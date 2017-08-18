@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Выбор города — Choose a city</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row class="manage-content">
+            <ion-item>
+                <ion-label color="primary" floating>Введите имя города</ion-label>
+                <ion-input [(ngModel)]="city"
+                           (keyup)="cityKeyPress($event)"
+                           name="city" type="text" autofocus></ion-input>
+            </ion-item>
+            <button ion-button (click)="searchCityClick($event)"
+                    title="Find a city by name"
+                    class="city-btn">Найти город
+            </button>
+        </ion-row>
+
+        <ion-row id="toomuch-city-label" [hidden]="(cityStatus !== 1)">
+            Найдено слишком много городов, попробуйте уточнить запрос
+        </ion-row>
+        <ion-row id="notfound-city-label" [hidden]="(cityStatus !== 2)">
+            Нет городов с подходящим именем
+        </ion-row>
+        <ion-row id="select-city-label" [hidden]="(cityStatus !== 3)">
+            Выберите город в таблице
+        </ion-row>
+
+        <ion-row *ngIf="cities" class="city-head">
+            <ion-col col-1>
+                №
+            </ion-col>
+            <ion-col col-2>
+                Ключ
+            </ion-col>
+            <ion-col col-5>
+                Нас. пункт
+            </ion-col>
+            <ion-col col-4>
+                Регион
+            </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let city of cities; index as i;" class="city-row" (click)="selectCityClick($event)">
+            <ion-col col-1 class="city-id">
+                {{i+1}}
+            </ion-col>
+            <ion-col col-2 class="city-key">{{city.Key}}</ion-col>
+            <ion-col col-5 class="city-name">{{city.LocalizedName}}</ion-col>
+            <ion-col col-4 class="city-state">{{city.AdministrativeArea.LocalizedName}}</ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
