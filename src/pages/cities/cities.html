@@ -17,9 +17,8 @@
                            name="city" type="text" autofocus></ion-input>
             </ion-item>
             <button ion-button (click)="searchCityClick($event)"
-                    title="Find a city by name"
-                    class="city-btn">Найти город
-            </button>
+                    title="Find a city by russian name"
+                    class="city-btn">Найти город</button>
         </ion-row>
 
         <ion-row id="toomuch-city-label" [hidden]="(cityStatus !== 1)">

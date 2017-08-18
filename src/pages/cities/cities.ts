@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {Storage} from "@ionic/storage";
 import {WeatherLocation, WeatherProvider} from "../../providers/weather/weather";
 import {ToastController} from 'ionic-angular';
@@ -24,6 +24,7 @@ export class CitiesPage {
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
+                public platform: Platform,
                 private weatherProvider: WeatherProvider,
                 private storage: Storage,
                 public toastCtrl: ToastController) {
@@ -41,13 +42,15 @@ export class CitiesPage {
     presentToast(city) {
         let toast = this.toastCtrl.create({
             message: 'Выбран город ' + city,
-            duration: 1500,
+            duration: 1000,
             cssClass: 'toast'
         });
 
         toast.onDidDismiss(() => {
             // this.navCtrl.push(HomePage);
-            this.navCtrl.popToRoot();
+            // this.navCtrl.popToRoot();
+            // MyApp.curPage = this.pages[0];
+            this.navCtrl.setRoot(HomePage);
         });
 
         toast.present();

@@ -2,12 +2,18 @@
     <ion-header>
         <ion-toolbar>
             <ion-title>Io-AccuWeather</ion-title>
+            <a href="http://valentov.ru/ionic-3-accuweather-app_blog" target="_self">
+                <button ion-button class="back-blog-btn">
+                    <ion-icon name="home"></ion-icon>&nbsp;Back to blog
+                </button>
+            </a>
         </ion-toolbar>
     </ion-header>
 
     <ion-content>
         <ion-list class="menu-list">
-            <button menuClose ion-item *ngFor="let p of pages" [class.active-highlight]="checkActive(p)" (click)="openPage(p)" class="menu-list-items">
+            <button menuClose ion-item *ngFor="let p of pages" [class.active-highlight]="checkActive(p)"
+                    (click)="openPage(p)" class="menu-list-items">
                 {{p.title}}
             </button>
         </ion-list>

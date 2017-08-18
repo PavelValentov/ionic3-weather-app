@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, Platform} from 'ionic-angular';
 import {WeatherProvider, WeatherLocation} from "../../providers/weather/weather";
 import {Storage} from "@ionic/storage";
 
@@ -13,6 +13,7 @@ export class HomePage {
 
     constructor(
         public navCtrl: NavController,
+        public platform: Platform,
         private weatherProvider: WeatherProvider,
         private storage: Storage) {
     }
@@ -62,36 +63,40 @@ export class HomePage {
                     state: 'Кемерово'
                 }
             }
-        });
 
-        if (this.location) {
-            this.weatherProvider.getWeather(this.location)
-                .subscribe(weather => {
-                    if (!weather) {
-                        console.log('error while getting weather: empty response');
-                        this.weather = null;
-                    } else if (weather == []) {
-                        console.log('there are no weather info');
-                        this.weather = null;
-                    } else if (weather.hasOwnProperty('Code')) {
-                        console.log('API error while getting cities with code ' + weather.Code + ': ' + weather.Message);
-                        this.weather = null;
-                    } else {
-                        console.log('Got weather');
+            if (this.location) {
+                this.weatherProvider.getWeather(this.location)
+                    .subscribe(weather => {
                         // console.log(weather);
-                        this.weather = weather;
-                    }
-                })
-        }
+                        // this.navCtrl.setRoot(this.navCtrl.getActive().component);
+
+                        if (!weather) {
+                            console.log('error while getting weather: empty response');
+                            this.weather = null;
+                        } else if (weather == []) {
+                            console.log('there are no weather info');
+                            this.weather = null;
+                        } else if (weather.hasOwnProperty('Code')) {
+                            console.log('API error while getting cities with code ' + weather.Code + ': ' + weather.Message);
+                            this.weather = null;
+                        } else {
+                            console.log('Got weather');
+                            // console.log(weather);
+                            this.weather = weather;
+                        }
+
+                    })
+            }
+        });
     }
 
     ionViewWillEnter() {
-        console.log('ionViewWillEnter');
         this.updateLocation();
+        // this.navCtrl.setRoot(this.navCtrl.getActive().component);
     }
 
     ionViewDidEnter() {
-        console.log('ionViewDidEnter');
-        this.updateLocation();
+        // this.updateLocation();
+        // this.navCtrl.setRoot(this.navCtrl.getActive().component);
     }
 }

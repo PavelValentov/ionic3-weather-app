@@ -2,5 +2,7 @@
   "name": "io-weather",
   "app_id": "0f3abfa9",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

@@ -48,7 +48,7 @@ export class WeatherProvider {
     }
 
     getStates() {
-        console.log(this.url);
+        // console.log(this.url);
         this.url = this.baseUrl +
             encodeURI('/locations/v1/adminareas/ru?apikey=' +
                 this.apiKey + '&language=' + this.lang +
