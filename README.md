@@ -1,6 +1,5 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
-
-# Ionic 3 AccuWeather by Pavel Valentov
+# Ionic 3 example
+# Io-AccuWeather by [Pavel Valentov](http:/valentov.ru)
 
 Start application:
 ```bash
@@ -9,4 +8,8 @@ $ ionic serve
 or
 ```bash
 $ ionic cordova run browser
+```
+or
+```bash
+$ ionic cordova run android --prod --release
 ```

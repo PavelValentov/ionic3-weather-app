@@ -32,3 +32,9 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+Markets/
+src/assets/img/accu-logo-smaller.png
+src/assets/img/accu-logo.png
+src/assets/img/play-market-1024-500.png
+src/assets/img/play-market-1280-720.png
+src/assets/img/play-market-180-120.png
